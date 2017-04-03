@@ -1,0 +1,6 @@
+---
+- name: Configure my website VM
+  hosts: all
+  become: True
+  roles:
+    - website

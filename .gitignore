@@ -1,6 +1,7 @@
 # ignore pycharm idea files
 .idea/
 
+*.retry
 # Created by https://www.gitignore.io/api/python
 
 ### Python ###

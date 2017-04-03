@@ -1,0 +1,72 @@
+---
+- name: Ensure needed packages are installed
+  yum:
+    name: "{{ item }}" 
+    state: latest
+  with_items:
+    - nginx
+    - supervisor
+    - gcc
+    - git
+    - python-pip
+    - python-devel
+
+- name: Remove apache if exists
+  yum:
+    name: httpd
+    state: absent
+
+- name: Upgrade pip
+  shell: pip install --upgrade pip    
+
+- name: Copy requirements file
+  copy:
+    src: requirements.txt
+    dest: /tmp/requirements.txt
+    mode: 0744
+
+- name: Install all the python packages
+  shell: pip install -r /tmp/requirements.txt    
+
+- name: Nginx conf
+  copy:
+    src: evolvecyber-nginx.conf
+    dest: /etc/nginx/conf.d/evolvecyber-nginx.conf
+    mode: 0644
+  notify:
+  - restart nginx
+
+- name: Pull the app from git
+  git: 
+    repo: "{{ webapp }}"
+    dest: /usr/share/nginx/html/app
+    force: yes
+  notify:
+  - restart supervisor
+
+- name: Copy setup files of uwsgi
+  copy:
+    src: "{{ item }}"
+    dest: /usr/share/nginx/html/{{ item }}
+    mode: 0755
+  with_items:
+    - app.ini
+  notify:
+    - restart supervisor
+
+- name: Copy over supervisor conf
+  copy:
+    src: supervisord/app.ini
+    dest: /etc/supervisord.d/app.ini
+    mode: 0744
+  notify:
+  - restart supervisor
+
+- name: Make sure services are up and enabled.
+  service:
+    name: "{{ item }}"
+    state: started
+    enabled: yes
+  with_items:
+    - supervisord
+    - nginx

@@ -1,0 +1,4 @@
+---
+webapp: https://github.com/bazimov/sample_webapp.git
+aws_access_key_id: "awsid"
+aws_secret_access_key: "awssecretkey"
