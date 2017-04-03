@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  {% block head %}
+  	<meta charset="utf-8">
+    <meta name="description" content="Responsive Bootstrap Landing Page Template">
+    <meta name="keywords" content="Bootstrap, Landing page, Template, Registration, Landing">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="Grayrids">
+
+  <title>{% block title %}{% endblock %} - Home</title>
+
+  <!-- CSS  -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='fonts/font-awesome.min.css') }}" type="text/css" media="screen">
+    <!-- Include roboto.css to use the Roboto web font, material.css to include the theme and ripples.css to style the ripple effect -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/material.min.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="{{ url_for('static', filename='css/ripples.min.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="{{ url_for('static', filename='css/main.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="{{ url_for('static', filename='css/responsive.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="{{ url_for('static', filename='css/animate.min.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="{{ url_for('static', filename='favicon.ico') }}" rel="shortcut icon">
+  {% endblock %}
+
+</head>
+    <body>
+
+          {% block content %}{% endblock %}
+
+      {% block footer %}
+         <section id="footer">
+              <div class="container">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                      <h3>Products</h3>
+                      <ul>
+                        <li><a href="http://wingthemes.com/">WingThemes</a>
+                        </li>
+                        <li><a href="http://graygrids.com/">Graygrids</a>
+                        </li>
+                        <li><a href="http://wpbean.com/">WPBean</a>
+                        </li>
+                        <li><a href="http://landingbow.com/">Landingbow</a>
+                        </li>
+                        <li><a href="http://freebiescircle.com/">FreebiesCicle</a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                      <h3>FAQs</h3>
+                      <ul>
+                        <li><a href="#">Why choose us?</a>
+                        </li>
+                        <li><a href="#">Where we are?</a>
+                        </li>
+                        <li><a href="#">Fees</a>
+                        </li>
+                        <li><a href="#">Guarantee</a>
+                        </li>
+                        <li><a href="#">Discount</a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                      <h3>About</h3>
+                      <ul>
+                        <li><a href="#">Career</a>
+                        </li>
+                        <li><a href="#">Partners</a>
+                        </li>
+                        <li><a href="#">Team</a>
+                        </li>
+                        <li><a href="#">Clients</a>
+                        </li>
+                        <li><a href="#">Contact</a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                      <h3>Find us on</h3>
+                      <a class="social" href="#" target="_blank"><i class="fa fa-facebook"></i></a>
+                      <a class="social" href="#" target="_blank"><i class="fa fa-twitter"></i></a>
+                      <a class="social" href="#" target="_blank"><i class="fa fa-google-plus"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Go to Top Link -->
+              <a href="#home" class="btn btn-primary back-to-top">
+              <i class=" mdi-hardware-keyboard-arrow-up"></i>
+              </a>
+            </section>
+
+            <section id="copyright">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-12">
+                    <p class="copyright-text">
+                     © Pluto 2015 All right reserved. Designed and Developed by
+                      <a href="http://graygrids.com/">
+                        GrayGrids
+                      </a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+      {% endblock %}
+
+    <!--  Scripts-->
+    <script src="{{ url_for('static', filename='js/jquery-2.1.4.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/ripples.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/material.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/wow.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.mmenu.min.all.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/count-to.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.inview.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/classie.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.nav.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/smooth-on-scroll.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/smooth-scroll.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+    <script>
+        $(document).ready(function() {
+            // This command is used to initialize some elements and make them work properly
+            $.material.init();
+        });
+    </script>
+
+  </body>
+
+</html>
